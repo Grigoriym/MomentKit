@@ -14,6 +14,8 @@ activityCompose = "1.12.0"
 composeBom = "2025.11.01"
 androidDesugarJdkLibs = "2.1.5"
 
+timber = "5.0.1"
+
 [libraries]
 androidx-core-ktx = { group = "androidx.core", name = "core-ktx", version.ref = "coreKtx" }
 junit = { group = "junit", name = "junit", version.ref = "junit" }
@@ -35,6 +37,8 @@ android-desugarJdkLibs = { group = "com.android.tools", name = "desugar_jdk_libs
 
 composeRules-ktlint = { module = "io.nlopez.compose.rules:ktlint", version.ref = "composeRules" }
 composeRules-detekt = { module = "io.nlopez.compose.rules:detekt", version.ref = "composeRules" }
+
+timber = { module = "com.jakewharton.timber:timber", version.ref = "timber" }
 
 [plugins]
 android-application = { id = "com.android.application", version.ref = "agp" }

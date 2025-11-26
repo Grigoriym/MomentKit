@@ -11,6 +11,7 @@ import android.widget.RemoteViews
 import com.grappim.momentkit.R
 import com.grappim.momentkit.RString
 import com.grappim.momentkit.formatters.DateTimeFormatters
+import timber.log.Timber
 import java.time.LocalDateTime
 import java.time.ZoneId
 import java.time.temporal.ChronoUnit
@@ -95,9 +96,16 @@ class MomentKitWidgetProvider : AppWidgetProvider() {
                 DateTimeFormatters.formatDDMMYYYY(currentDateTime)
             )
 
-            // Update title and additional fields if layout has them (medium/large only)
+            // Update day of week for small widget
+            if (layoutId == R.layout.widget_moment_kit_small) {
+                setTextViewText(
+                    R.id.widget_day_of_week,
+                    DateTimeFormatters.getDayOfWeek(currentDateTime)
+                )
+            }
+
+            // Update additional fields if layout has them (medium/large only)
             if (layoutId != R.layout.widget_moment_kit_small) {
-                setTextViewText(R.id.widget_title, context.getString(RString.widget_title))
                 setTextViewText(
                     R.id.widget_time_12h,
                     DateTimeFormatters.format12HourNoSeconds(currentDateTime)
@@ -132,13 +140,30 @@ class MomentKitWidgetProvider : AppWidgetProvider() {
         appWidgetManager.updateAppWidget(appWidgetId, views)
     }
 
-    private fun getLayoutForSize(width: Int, height: Int): Int = when {
-        // Small: 2x2
-        width < 150 || height < 150 -> R.layout.widget_moment_kit_small
-        // Large: 4x3+
-        width >= 250 && height >= 180 -> R.layout.widget_moment_kit_large
-        // Medium: 3x3 (default)
-        else -> R.layout.widget_moment_kit
+    /**
+     * Calculates approximate number of grid cells for a given dp size.
+     * Android widget grid formula: dp = cells * 70 - 30
+     * Solving for cells: cells = (dp + 30) / 70
+     */
+    private fun getCellsForSize(dp: Int): Int {
+        return (dp + 30) / 70
+    }
+
+    private fun getLayoutForSize(width: Int, height: Int): Int {
+        val widthCells = getCellsForSize(width)
+        val heightCells = getCellsForSize(height)
+
+        Timber.d("Widget size: ${width}dp x ${height}dp (~${widthCells}x${heightCells} cells)")
+
+        return when {
+            // Small: Less than 3 cells in either dimension (2x2)
+            widthCells < 3 || heightCells < 3 -> R.layout.widget_moment_kit_small
+            // Large: 4+ cells width and 4+ cells height (4x4+)
+            // Requires more height because of the additional info section
+            widthCells >= 4 && heightCells >= 4 -> R.layout.widget_moment_kit_large
+            // Medium: 3x3, 5x3, 3x4, etc. (default)
+            else -> R.layout.widget_moment_kit
+        }
     }
 
     private fun scheduleNextUpdate(context: Context) {
