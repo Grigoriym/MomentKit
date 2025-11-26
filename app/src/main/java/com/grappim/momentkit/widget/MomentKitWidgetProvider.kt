@@ -9,7 +9,6 @@ import android.content.Context
 import android.content.Intent
 import android.widget.RemoteViews
 import com.grappim.momentkit.R
-import com.grappim.momentkit.RString
 import com.grappim.momentkit.formatters.DateTimeFormatters
 import timber.log.Timber
 import java.time.LocalDateTime
@@ -145,15 +144,13 @@ class MomentKitWidgetProvider : AppWidgetProvider() {
      * Android widget grid formula: dp = cells * 70 - 30
      * Solving for cells: cells = (dp + 30) / 70
      */
-    private fun getCellsForSize(dp: Int): Int {
-        return (dp + 30) / 70
-    }
+    private fun getCellsForSize(dp: Int): Int = (dp + 30) / 70
 
     private fun getLayoutForSize(width: Int, height: Int): Int {
         val widthCells = getCellsForSize(width)
         val heightCells = getCellsForSize(height)
 
-        Timber.d("Widget size: ${width}dp x ${height}dp (~${widthCells}x${heightCells} cells)")
+        Timber.d("Widget size: ${width}dp x ${height}dp (~$widthCells}x$heightCells cells)")
 
         return when {
             // Small: Less than 3 cells in either dimension (2x2)
