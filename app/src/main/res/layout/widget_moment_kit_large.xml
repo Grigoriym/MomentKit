@@ -1,0 +1,130 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Large widget: 4x3+ - More spacious layout -->
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/widget_root"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/widget_background"
+    android:orientation="vertical"
+    android:padding="16dp">
+
+    <TextView
+        android:id="@+id/widget_title"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/widget_title"
+        android:textAlignment="center"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        android:paddingBottom="12dp" />
+
+    <!-- Time Section -->
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/widget_section_time"
+        android:textSize="13sp"
+        android:textStyle="bold"
+        android:paddingTop="4dp"
+        android:paddingBottom="6dp" />
+
+    <TextView
+        android:id="@+id/widget_time_24h"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="00:00"
+        android:textSize="16sp"
+        android:paddingStart="8dp"
+        android:paddingEnd="8dp"
+        android:paddingBottom="3dp" />
+
+    <TextView
+        android:id="@+id/widget_time_12h"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="00:00 AM"
+        android:textSize="16sp"
+        android:paddingStart="8dp"
+        android:paddingEnd="8dp"
+        android:paddingBottom="8dp" />
+
+    <!-- Date Section -->
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/widget_section_date"
+        android:textSize="13sp"
+        android:textStyle="bold"
+        android:paddingTop="4dp"
+        android:paddingBottom="6dp" />
+
+    <TextView
+        android:id="@+id/widget_date_ddmmyyyy"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="DD/MM/YYYY"
+        android:textSize="14sp"
+        android:paddingStart="8dp"
+        android:paddingEnd="8dp"
+        android:paddingBottom="3dp" />
+
+    <TextView
+        android:id="@+id/widget_date_mmddyyyy"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="MM/DD/YYYY"
+        android:textSize="14sp"
+        android:paddingStart="8dp"
+        android:paddingEnd="8dp"
+        android:paddingBottom="3dp" />
+
+    <TextView
+        android:id="@+id/widget_date_yyyymmdd"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="YYYY/MM/DD"
+        android:textSize="14sp"
+        android:paddingStart="8dp"
+        android:paddingEnd="8dp"
+        android:paddingBottom="8dp" />
+
+    <!-- Additional Info Section -->
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/section_additional_info"
+        android:textSize="13sp"
+        android:textStyle="bold"
+        android:paddingTop="4dp"
+        android:paddingBottom="6dp" />
+
+    <TextView
+        android:id="@+id/widget_week_of_year"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Week: 48"
+        android:textSize="13sp"
+        android:paddingStart="8dp"
+        android:paddingEnd="8dp"
+        android:paddingBottom="2dp" />
+
+    <TextView
+        android:id="@+id/widget_day_of_week"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Tuesday"
+        android:textSize="13sp"
+        android:paddingStart="8dp"
+        android:paddingEnd="8dp"
+        android:paddingBottom="2dp" />
+
+    <TextView
+        android:id="@+id/widget_month"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="November"
+        android:textSize="13sp"
+        android:paddingStart="8dp"
+        android:paddingEnd="8dp" />
+
+</LinearLayout>

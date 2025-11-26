@@ -1,0 +1,31 @@
+<resources>
+    <string name="app_name">MomentKit</string>
+    <string name="widget_description">Resizable widget showing time and date in multiple formats</string>
+
+    <!-- Main Screen -->
+    <string name="title">MomentKit</string>
+
+    <!-- Time Section -->
+    <string name="section_current_time">Current Time</string>
+    <string name="label_time_24h">24-Hour Format</string>
+    <string name="label_time_12h">12-Hour Format</string>
+
+    <!-- Date Section -->
+    <string name="section_current_date">Current Date</string>
+    <string name="label_date_ddmmyyyy">DD/MM/YYYY</string>
+    <string name="label_date_mmddyyyy">MM/DD/YYYY</string>
+    <string name="label_date_yyyymmdd">YYYY/MM/DD</string>
+
+    <!-- Additional Info Section -->
+    <string name="section_additional_info">Additional Information</string>
+    <string name="label_week_of_year">Week of Year</string>
+    <string name="label_day_of_year">Day of Year</string>
+    <string name="label_day_of_week">Day of Week</string>
+    <string name="label_month">Month</string>
+    <string name="label_month_of_year">Month of Year</string>
+
+    <!-- Widget -->
+    <string name="widget_title">MomentKit</string>
+    <string name="widget_section_time">Time</string>
+    <string name="widget_section_date">Date</string>
+</resources>
